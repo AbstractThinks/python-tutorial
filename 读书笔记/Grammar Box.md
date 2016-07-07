@@ -36,3 +36,23 @@ for item in list ：
 while condition :
     block
 ```
+
+##函数
+
+```python
+1.空函数： pass
+2.类型检查：python是类型不安全的，所以可以通过isinstance(var,(type1, type2))来检查类型
+3.返回多个值，使用tuple。不可以省略括号
+4.默认值：def method(arg = 'arg')
+5.可变参数:def method(*var_arg), 其中var_arg是一个tuple,可以使用for...in..来遍历
+6.关键字参数：def method(**key), 关键字参数不限制传入的参数个数和类型，会在函数内部组合成一个dict
+7.参数组合：
+
+ def test(x,y=5,*a,**b):
+     print x,y,a,b
+ #test(1,2) ===> 1 2 () {}
+ #test(x=1,y=1,a=1)   ===> 1 1 () {'a':1}
+ #test(1,2,3,4,k=1,t=2,o=3) ===> 1 2 (3,4) {'k':1,'t':2,'o':3}
+ 
+8.递归函数
+```
