@@ -56,3 +56,14 @@ while condition :
  
 8.递归函数
 ```
+
+##高级特性
+|切片|迭代|列表生成器|生成器|
+|---|---|---|---|
+|arr[0:3]:表示从第0个元素开始，取3个|迭代即使用:for item in arr, arr可以是数组，字典或者字符串|列表生成使用range(start,end)函数。[]|如果你需要一组序列，但是太大，占用内存过多。那么可以使用生成器，它是实时计算的列表。|
+|arr[-3:-1]:表示取倒数第三，第二个元素,-1表示最后一个|判断是否可以迭代isinstance(object, Iterable)|混合生成使用简写for...in...迭代|将列表生成表达式的[]变为()即可|
+|arr[::5]:每5个取一个元素|迭代dict: for key in dict遍历key。for value in dict.itervalues()遍历value；for k, v in dict.iteritems()遍历key和value||可以将一个函数变成一个生成器，只需要添加yield item语句即可，生成器会在遇到yield的时候返回对应结果，下次next从上次yield之后开始执行。|
+|字符串也可以切片||||
+ 
+
+
