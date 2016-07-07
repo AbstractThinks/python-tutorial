@@ -7,3 +7,24 @@
 |list|tuple|
 |----|----|
 |定义：使用中括号`[]`定义数组<br>例：['1','hello']|定义：使用小括号`()`定义元祖<br>例：（1,2,3）<br>不可变的数组|
+
+```python
+#代码段落需要严格缩进
+if condition :
+    block
+elif condition :
+    block
+else :
+    block
+    
+#可以生成从0到number-1的list
+range(number)
+
+#for循环
+for item in list ：
+    block
+    
+#while循环
+while condition :
+    block
+```
