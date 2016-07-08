@@ -26,6 +26,42 @@
 |`isinstance('abc', Iterable)`|Python内置的enumerate函数可以把一个list变成索引-元素对<br>`for i, value in enumerate(['A', 'B', 'C'])`|
 
 
+###列表生成式
+
+```python
+ list(range(1, 11))
+ >>> [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+ 
+  L = []
+  for x in range(1, 11):
+    L.append(x * x)
+  >>> [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+  
+   [x * x for x in range(1, 11)]
+   >>> [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+ 
+```
+
+###生成器
+
+```python
+只要把一个列表生成式的[]改成()
+
+g = (x * x for x in range(10))
+ >>> <generator object <genexpr> at 0x1022ef630>
+ 
+如果要一个一个打印出来，可以通过next()函数获得generator的下一个返回值
+
+首选用for循环遍历生成器，可以避免StopIteration错误
+
+g = (x * x for x in range(10))
+for n in g:
+     print(n)
+     
+```
+
+
+
 
 
 
