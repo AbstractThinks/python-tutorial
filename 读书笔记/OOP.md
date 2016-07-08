@@ -9,6 +9,9 @@
       @property
     </th>
     <th>
+      多重继承
+    </th>
+    <th>
       定制类
     </th>
     <th>
@@ -24,6 +27,28 @@
     </td>
     <td>
     把一个getter方法变成属性，只需要加上@property就可以了，此时，@property本身又创建了另一个装饰器@score.setter，负责把一个setter方法变成属性赋值
+    </td>
+    <td>
+      <pre>
+class Mammal(Animal):
+    pass
+    
+class Runnable(object):
+    def run(self):
+        print('Running...')
+        
+class Dog(Mammal, Runnable):
+    pass
+        
+      </pre>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+      metaclass
+      type
     </td>
   </tr>
   <tr>
