@@ -17,10 +17,13 @@
 
 ###迭代
 
-|默认迭代|迭代键值对|判断是否可以迭代<br>isinstance(L, Iterable)|enumerate(L)|
-|--------|----------|-------------------------------------------|---------|
-|`for value in d.values()`|`for k, v in d.items()`| `isinstance('abc', Iterable)`|Python内置的enumerate函数可以把一个list变成索引-元素对<br>`for i, value in enumerate(['A', 'B', 'C'])`|
+|默认迭代|迭代键值对|
+|--------|----------|
+|```for value in d.values()```|`for k, v in d.items()`| 
 
+|判断是否可以迭代<br>isinstance(L, Iterable)|enumerate(L)|
+|--------|----------|
+|`isinstance('abc', Iterable)`|Python内置的enumerate函数可以把一个list变成索引-元素对<br>`for i, value in enumerate(['A', 'B', 'C'])`|
 
 
 
