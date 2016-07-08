@@ -184,6 +184,10 @@ print q
 q.DeQueue()
 print q
 
+>>> ['h','e','l','l','o',' ','W','o','r','l','d']
+>>> ['h','e','l','l','o',' ','W','o','r','l','d','!']
+>>> ['e','l','l','o',' ','W','o','r','l','d','!']
+
 1. 拦截类的创建
 2. 根据"__metaclass__"对应的代码修改类
 3. 返回修改之后的类
@@ -237,6 +241,11 @@ class MyClass(object):
 
 print 'gonna create foo now...'
 foo = MyClass(1, 2) 
+
+>>>  gonna create foo now...
+>>>  __call__ of <class '__main__.MyClass'>
+>>>  __call__ *args = (1, 2)
+>>>  MyClass object with a=1, b=2
 
 ```
   
