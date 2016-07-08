@@ -73,5 +73,23 @@ print(10 / n)
 ##当我们指定level=INFO时，logging.debug就不起作用了。同理，指定level=WARNING后，debug和info就不起作用了。
 ##这样一来，你可以放心地输出不同级别的信息，也不用删除，最后统一控制输出哪个级别的信息。
 ```
+###pdb
 
+```python
+ 通过python3 -m pdb err.py命令进入调试模式
+ l >>>>> 查看代码
+ n >>>>> 单步执行
+ p 变量名 >>>>> 查看变量
+ q >>>>> 结束调试
+ c >>>>> 继续执行
+ 
+# pdb.set_trace()
+import pdb
+
+s = '0'
+n = int(s)
+pdb.set_trace() # 运行到这里会自动暂停
+print(10 / n)
+
+```
 
