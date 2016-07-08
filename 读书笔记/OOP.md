@@ -99,3 +99,145 @@ AttributeError: 'Student' object has no attribute 'score'
     </td>
   </tr>
 </table>
+
+
+##元类
+
+#####type(类名, 父类的元组（可以为空）, 属性的字典)
+```python
+
+一切皆是对象
+一切皆是对象
+一切皆是对象
+
+Class C(object):
+  pass
+c = C()
+print c.__class__
+print C.__class__
+
+>>> <class '__main__.C'>
+>>> <class 'type'>
+
+type(类名, 父类的元组（可以为空）, 属性的字典)
+
+def  printInfo(self):
+    print "%s is %d years old" %(self.name, self.age)
+
+S = type("Student", (object, ), {"name": "Wilber", "age": 28, "printStudentInfo": printInfo})
+
+print type(S)             >>> <type 'type'>
+s = S()
+print type(s)             >>> <class '__main__.Student'>
+s.printStudentInfo()      >>> Wilber is 28 years old
+
+```
+#####__metaclass__
+
+___元类就是用来创建类的"模板",元类就是类的类___
+
+1. `Python解释器会在当前类中查找"__metaclass__"属性对于的代码，然后创建一个类对象`
+2. `如果没有找到"__metaclass__"属性，会继续在父类中寻找"__metaclass__属性"，并尝试前面同样的操作`
+3. `如果在任何父类中都找不到"__metaclass__"，就会用内置的type来创建这个类对象`
+
+```python
+
+def queueMeta(name, bases, attrs):
+    attrs['InQueue'] = lambda self, value: self.append(value)
+        
+    def deQueue(self):
+        if len(self) > 0:
+            return self.pop(0)
+    attrs['DeQueue'] = deQueue
+    
+    # 直接调用type内建函数
+    return type(name, bases, attrs)
+
+
+# 元类从`type`类型派生
+class QueueMetaclass(type):
+    def __new__(cls, name, bases, attrs):
+        attrs['InQueue'] = lambda self, value: self.append(value)
+        
+        def deQueue(self):
+            if len(self) > 0:
+                return self.pop(0)
+        attrs['DeQueue'] = deQueue
+        
+        # 直接调用type内建函数
+        # return type(name, bases, attrs)
+        
+        # 通过父类的__new__方法
+        return type.__new__(cls, name, bases, attrs)
+
+class MyQueue(list):
+    # 设置metaclass属性，可以使用一个函数，也可以使用一个类，只要是可以创建类的代码
+    #__metaclass__ = queueMeta
+    __metaclass__ = QueueMetaclass
+    pass
+    
+
+q = MyQueue("hello World")
+print q
+q.InQueue("!")
+print q
+q.DeQueue()
+print q
+
+1. 拦截类的创建
+2. 根据"__metaclass__"对应的代码修改类
+3. 返回修改之后的类
+
+```
+
+```python
+
+class MyMetaclass(type):
+    def __new__(meta, name, bases, attrs):
+        print '-----------------------------------'
+        print "Allocating memory for class", name
+        print meta
+        print bases
+        print attrs
+        return super(MyMetaclass, meta).__new__(meta, name, bases, attrs)
+    
+    def __init__(cls, name, bases, attrs):
+        print '-----------------------------------'
+        print "Initializing class", name
+        print cls
+        print bases
+        print attrs
+        super(MyMetaclass, cls).__init__(name, bases, attrs)
+
+class MyClass(object):
+    __metaclass__ = MyMetaclass
+
+    def foo(self, param):
+        pass
+
+barattr = 2   
+
+```
+
+"__call__"是另外一个经常在实现元类时被重写的方法，与"__init__"和"__new__"不同的是，当调用"__call__"的时候，类已经被创建出来了，"__call__"是作用在类创建的实例过程。
+
+```python
+
+class MyMetaclass(type):
+    def __call__(cls, *args, **kwds):
+        print '__call__ of ', str(cls)
+        print '__call__ *args=', str(args)
+        return type.__call__(cls, *args, **kwds)
+
+class MyClass(object):
+    __metaclass__ = MyMetaclass
+
+    def __init__(self, a, b):
+        print 'MyClass object with a=%s, b=%s' % (a, b)
+
+print 'gonna create foo now...'
+foo = MyClass(1, 2) 
+
+```
+  
+
