@@ -1,3 +1,26 @@
+##引入包
+> import module 
+> 调用：module.functionName
+> 
+> 
+> from module import functionName 
+> form module import a, b, c
+> from module import *
+> function和变量直接导入到本地空间去，可以直接使用。
+> 块的所有公共对象(public objects)都被导入到当
+> 前的名称空间，也就是任何只要不是以”_”开始的东西都会被导入
+> 
+> 程序中必须使用完整名称，即通过package.module使用，
+> 如果只导入package而不导入module，那么只有package中定义的
+> __init__.py模块中的内容可用（使用该模块中的内容需加上包名）
+> 
+> 
+> 
+> 
+>
+
+
+
 ##一个.py文件就称之为一个模块（Module）
 
 
