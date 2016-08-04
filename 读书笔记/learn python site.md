@@ -6,3 +6,5 @@ the note of learn python
 
 [learn python the hard way](http://learnpythonthehardway.org/book/)
 
+[基础语法](http://www.runoob.com/python/python-tutorial.html)
+
