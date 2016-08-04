@@ -68,7 +68,8 @@ while condition :
 
 ##with
 
-'''python
+```python
+//传统写法
 try:
     f = open('xxx')
 except:
@@ -82,6 +83,16 @@ finally:
     f.close()
 
 
+//with语句写法
+
+try:
+    with open( "a.txt" ) as f :
+        do something
+except xxxError:
+    do something about exception
+
+
+//with语句说明
 class A:  
     def __enter__(self):  
         print 'in enter'  
@@ -95,4 +106,4 @@ with A() as a:
 >>> in with  
 >>> in exit  
 
-'''
+```
