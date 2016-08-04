@@ -66,4 +66,44 @@ while condition :
 |字符串也可以切片||||
  
 
+##with
 
+```python
+//传统写法
+try:
+    f = open('xxx')
+except:
+    print 'fail to open'
+    exit(-1)
+try:
+    do something
+except:
+    do something
+finally:
+    f.close()
+
+
+//with语句写法
+
+try:
+    with open( "a.txt" ) as f :
+        do something
+except xxxError:
+    do something about exception
+
+
+//with语句说明
+class A:  
+    def __enter__(self):  
+        print 'in enter'  
+    def __exit__(self, e_t, e_v, t_b):  
+        print 'in exit'  
+  
+with A() as a:  
+    print 'in with'  
+  
+>>> in enter  
+>>> in with  
+>>> in exit  
+
+```
