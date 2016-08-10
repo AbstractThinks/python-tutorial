@@ -31,29 +31,29 @@ isinstance(obj, Class)-判断obj是Class类的实例对象或者是一个Class�
 class Parent:
     parentAttr = 100
     def __init__(self):
-        print "调用父类构造函数"
+        print("调用父类构造函数")
 
     def parentMethod(self):
-        print '调用父类方法'
+        print('调用父类方法')
 
     def setAttr(self, attr):
         Parent.parentAttr = attr
 
     def getAttr(self):
-        print "父类属性 :", Parent.parentAttr
+        print("父类属性 :", Parent.parentAttr)
 
     def rewrite(self):
-        print '调用父类方法'
+        print('调用父类方法')
 
 class Child(Parent):
     def __init__(self):
-        print "调用子类构造方法"
+        print("调用子类构造方法")
 
     def childMethod(self):
-        print "调用子类方法"
+        print("调用子类方法")
 
     def rewrite(self):
-        print '调用子类方法'
+        print('调用子类方法')
 
 #实例化子类
 c = Child()
@@ -65,8 +65,14 @@ c.parentMethod()
 c.setAttr(200)
 #再次调用父类的方法
 c.getAttr()
+print(dir(c))
+print(c.parentAttr)
 #子类重写父类方法
-c.rewirte()
+c.rewrite()
+print(c.__module__)
+print(c.__doc__)
+print(c.__class__)
+
 
 '''
 结果

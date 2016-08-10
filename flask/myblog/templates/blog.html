@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <title>
+            {{ title }} -- microblog
+        </title>
+
+    </head>
+    <body>
+        <h1>
+            hello, {{ user.name }}
+        </h1>
+        <!--循环-->
+        <ul>
+            {% for list in lists %}
+            <li>
+                {{ list.value }}
+            </li>
+            {% endfor %}
+        </ul>
+        <!--判断-->
+        {% if show %}
+        <p>
+            {{ show }}
+        </p>
+        {% else %}
+        <p>
+            取反{{ show }}
+        </p>
+        {% endif %}
+
+        <p>
+            <!--登录页面采用flash模块缓存数据,从缓存中读取数据-->
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>
+                    {{ message }}
+                    </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% endwith %}
+        </p>
+
+        <!--继承-->
+
+        {% extends "base.html" %}
+        {% block content %}
+            <p>
+            继承base.html的dom结构
+            </p>
+        {% endblock %}
+
+    </body>
+</html>
