@@ -1,10 +1,14 @@
 from flask import Flask,render_template, redirect, flash
 from forms import LoginForm
 
+# 数据库
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
-app.config.from_object('config')
+app.config.from_object('configs')
+
+db = SQLAlchemy(app)
 
 @app.route('/')
 @app.route('/index')

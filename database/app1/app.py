@@ -1,15 +1,16 @@
-# -*- coding:utf-8 -*-
+# -*- coding: utf-8 -*-
 
 import pymysql
 
-conn = pymysql.connect(host='localhost', port=3306, user='root', passwd='abcd,1234.', db='python_test')
+conn = pymysql.connect(host='localhost', port=3306, user='root', passwd='abcd,1234.', charset='utf8')
 
+# cur = conn.connect()
 cur = conn.cursor()
 
-
 #创建数据表
-cur.execute("create table student(id int, name vachar(20), class varchar(30), age varchar(10))")
-
+# cur.execute("CREATE DATABASE dataTest")
+cur.execute("USE python_test")
+# cur.execute("CREATE TABLE student(id INT, name VARCHAR(20), class VARCHAR(30), age VARCHAR(10)")
 #=============================================================
 # #纯sql语句操作
 #
@@ -44,12 +45,13 @@ cur.execute("create table student(id int, name vachar(20), class varchar(30), ag
 # cur.execute("delete from student where age = '9'")
 #
 # #查询数据, 获取student表数据的总条数
-# aa = cur.execute("select * from student")
+aa = cur.execute("select * from user_test")
+print(aa)
 #
 # # 遍历表中数据
-# info = cur.fetchmany(aa)
-# for ii in info:
-#     print(ii)
+info = cur.fetchmany(aa)
+for ii in info:
+    print(ii)
 
 
 
