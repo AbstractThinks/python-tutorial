@@ -194,3 +194,5 @@ WSGIPythonPath /home/ubuntu/mysite #Django项目所在的位置
 </Directory>
 
 ```
+
+完整实例 myblog
