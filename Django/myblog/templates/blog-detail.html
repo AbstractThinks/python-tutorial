@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ blog.title }}</title>
+    <link rel="stylesheet" href="/static/lib/css/bootstrap.css" />
+</head>
+<body>
+    <div class="container-fluid">
+
+        <div class="header row">
+            <span><a href="{% url 'blog_get_blogs' %}">博客</a> - <a href="{% url 'blog_get_detail' blog.id %}">{{ blog.title }}</a></span>
+        </div>
+        <div class="content">
+            <div class="blog">
+                <div class="title">
+                    <a href="javascript:void(0)"><h2>{{ blog.title }}</h2></a>
+                </div>
+                <div class="info">
+                    <span class="category">{{ blog.category.name }}</span>
+                    <span class="author">{{ blog.author }}</span>
+                    <span class="created">{{ blog.created|date:'Y-m-d H:i' }}</span>
+
+                </div>
+                <div class="summary">
+                    {{ blog.content }}
+                </div>
+            </div>
+            <div class="comment">
+                <div class="comments-display">
+                    <h3>评论</h3>
+                    {% for comment in comments %}
+                        <div class="comment-field">
+                        {{ comment.name }}说:{{ comment.content }}
+                        </div>
+                    {% endfor %}
+
+                </div>
+                <div class="comment-post">
+                    <h3>提交评论</h3>
+                    <form action="{% url 'blog_get_detail' blog.id %}" method="post">
+                        {% csrf_token %}
+                        {% for field in form %}
+                            <div class="input-field">
+                                {{ field.label }} : {{ field }}
+                            </div>
+                            <div class=""error">
+                                {{ field.errors }}
+                            </div>
+
+                        {% endfor %}
+                        <button type="submit">提交</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+<script src="/static/lib/js/jquery-3.1.0.min.js"></script>
+<script src="/static/lib/js/bootstrap.js"></script>
+</html>

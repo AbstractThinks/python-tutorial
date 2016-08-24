@@ -20,7 +20,17 @@ python manage.py runserver 8080
 #创建Django App
 python manage.py startapp books
 
+#更新数据库模型
+python3.5 manage.py makemigrations 
+
+#创建数据库关系映射
+python manage.py migrate
+
+#创建管理系统管理人员
+python manage.py createsuperuser
+
 ```
+注：在应用`settings.py`文件中的`MIDDLEWARE`配置项应改`为MIDDLEWARE_CLASSES`
 
 
 ##访问路径
@@ -67,6 +77,24 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'mysite.views.first_page'),
     url(r'^appName/', include('appName.urls')),
+)
+
+#4.静态文件访问
+Django1.9
+
+在setting.py文件中添加配置
+
+```python
+#在
+#INSTALLED_APPS＝［
+#	...
+#	'django.contrib.staticfiles'
+#	...
+#］
+#在STATIC_URL＝‘static’下添加配置
+STATICFILES_DIR = (
+	os.path.join(BASE_DIR, 'static'),
+	'/static/目标目录'，#目标目录为可访问的静态资源文件夹
 )
 ```
 
