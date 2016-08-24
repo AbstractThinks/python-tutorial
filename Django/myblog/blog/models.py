@@ -45,16 +45,16 @@ class CommentForm(forms.Form):
     评论表单
     '''
 
-    name = forms.CharField(label='称呼', max_length=16, error_messages={
+    name = forms.CharField(label='称呼', max_length=16, widget=forms.TextInput(attrs={'class' : 'form-control'}), error_messages={
         'required' : '请填写你的邮箱',
         'max_length' : '称呼太长'
     })
 
-    email = forms.EmailField(label='邮箱', error_messages={
+    email = forms.EmailField(label='邮箱', widget=forms.TextInput(attrs={'class' : 'form-control'}), error_messages={
         'required' : '请填写您的邮箱',
         'invalid' : '邮箱格式不对'
     })
-    content = forms.CharField(label='评论内容', error_messages={
+    content = forms.CharField(label='评论内容', widget=forms.Textarea(attrs={'class' : 'form-control'}), error_messages={
         'required' : '请填写您的评论内容',
         'max_length' : '评论内容太长'
     })
