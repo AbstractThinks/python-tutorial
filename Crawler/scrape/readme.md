@@ -40,7 +40,8 @@ nodename
 
 /
 从根节点选取
-/html/head/title: 选择HTML文档<head>元素下面的<title> 标签。<br> /html/head/title/text():选择前面提到的<title> 元素下面的文本内容|
+/html/head/title: 选择HTML文档<head>元素下面的<title> 标签。
+/html/head/title/text():选择前面提到的<title> 元素下面的文本内容|
 
 //
 从匹配选择的当前节点选择文档中的节点,而不考虑他们的位置
