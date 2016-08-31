@@ -1,0 +1,10 @@
+```python
+
+scrapy.cfg : 项目的配置文件
+tutorial/ : 该项目的python 模块。
+tutorial/items.py : 项目中的item文件
+tutorial/pipelines.py : 项目中的pipelines文件
+tutorial/settings.py : 项目的设置文件
+tutorial/spiders/ : 放置spider代码的目录
+
+```
