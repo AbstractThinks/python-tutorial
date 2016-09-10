@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/lib/materialize/css/materialize.css">
+    <link rel="stylesheet" href="/static/lib/iconfont/material-icons.css">
+    <link rel="stylesheet" href="/static/lib/css/common.css">
+    <link rel="stylesheet" href="/static/job/job_society.css">
+</head>
+<body>
+    <header>
+        {% include 'public/nav.html' %}
+    </header>
+    <div class="container">
+        <ul id="breadcrumb">
+            <li><a href="{% url 'site_index' %}"><i class="material-icons">home</i></a></li>
+            <li><a href="javascript:vooid(0)">
+{#                <i class="material-icons">add</i>#}
+                招聘</a>
+            </li>
+            <li><a href="{% url 'site_about_job_society' %}">
+{#                <i class="material-icons">add</i>#}
+                社会招聘</a>
+            </li>
+        </ul>
+
+        {% include 'job/job_filter.html' %}
+        {% include 'job/job_list.html' %}
+    </div>
+    {% include 'public/pagination.html' %}
+    {% include 'public/footer.html' %}
+
+<script src="/static/job/job_society.js"></script>
+</html>

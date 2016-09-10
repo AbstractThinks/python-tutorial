@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/lib/materialize/css/materialize.css">
+    <link rel="stylesheet" href="/static/lib/iconfont/material-icons.css">
+    <link rel="stylesheet" href="/static/lib/css/common.css">
+    <link rel="stylesheet" href="/static/index/index.css">
+
+</head>
+<body>
+    <header>
+        {% include 'public/nav.html' %}
+    </header>
+{#    <div class="parallax-container">#}
+{#        <div class="parallax"><img src="/static/img/index/parallax1.jpg"></div>#}
+{#    </div>#}
+{#    <div class="section white">#}
+        <div>
+            <div class="carousel2 .carousel-slider">
+                <a class="carousel-item" href="#one!"><img src="/static/img/index/1.jpeg"></a>
+                <a class="carousel-item" href="#two!"><img src="/static/img/index/2.jpeg"></a>
+                <a class="carousel-item" href="#three!"><img src="/static/img/index/3.jpeg"></a>
+                <a class="carousel-item" href="#four!"><img src="/static/img/index/2.jpeg"></a>
+                <a class="carousel-item" href="#five!"><img src="/static/img/index/1.jpeg"></a>
+            </div>
+
+        </div>
+        <div class="row container">
+            {% include 'index/content.html' %}
+        </div>
+{#    </div>#}
+{#    <div class="parallax-container">#}
+{#        <div class="parallax"><img src="/static/img/index/parallax2.jpg"></div>#}
+{#    </div>#}
+
+{#    <div class="container">#}
+{##}
+{#        <section>#}
+{#            {% include 'index/content.html' %}#}
+{#        </section>#}
+{#    </div>#}
+    {% include 'public/footer.html' %}
+
+    <script src="/static/index/index.js"></script>
+</html>

@@ -1,0 +1,9 @@
+.title {
+    /*margin-top: 48px;*/
+    margin-bottom: 16px;
+    padding-left: 16px;
+    border-left: 8px solid #ee6e73;
+}
+.title-section {
+    padding-bottom: 48px;
+}

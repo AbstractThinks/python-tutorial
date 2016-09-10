@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/lib/materialize/css/materialize.css">
+    <link rel="stylesheet" href="/static/lib/iconfont/material-icons.css">
+    <link rel="stylesheet" href="/static/lib/css/common.css">
+    <link rel="stylesheet" href="/static/job/job_detail.css">
+</head>
+<body>
+    <header>
+        {% include 'public/nav.html' %}
+    </header>
+    <div class="container">
+        <ul id="breadcrumb" >
+            <li><a href="#"><i class="material-icons">home</i></a></li>
+            <li><a href="#">
+{#                <i class="material-icons">add</i>#}
+                招聘</a>
+            </li>
+            <li><a href="#">
+{#                <i class="material-icons">add</i>#}
+                职位详情</a>
+            </li>
+        </ul>
+{#        <div class="card-panel lighten-5 z-depth-1">#}
+{#            <div class="card-content">#}
+                <ul class="tag-list">
+                    <li>
+                        <div class="title-section">
+                            <h2>{{ Job.title }}</h2>
+
+{#                            {{ Job.tags}}#}
+                            <div class="chip">
+                                更新时间:{{ Job.created|date:'Y-m-d' }}
+                            </div>
+                            <div class="chip">
+                                地点:{{ Job.address.name }}
+                            </div>
+                            {% autoescape off %}
+                                {{ Job.tag }}
+                            {% endautoescape %}
+
+                        </div>
+
+                    </li>
+
+                    <li>
+                        <div class="card-panel lighten-5 z-depth-1">
+                            <div class="card-content">
+                                <h5 class="title">职位描述:</h5>
+                                {% autoescape off %}
+                                    {{ Job.description }}
+                                {% endautoescape %}
+                            </div>
+                        </div>
+
+                    </li>
+
+                    <li>
+                        <div class="card-panel lighten-5 z-depth-1">
+                            <div class="card-content">
+                                <h5 class="title">
+                                   岗位职责：
+                                </h5>
+                                {% autoescape off %}
+                                    {{ Job.responsibility }}
+                                {% endautoescape %}
+
+                            </div>
+                        </div>
+
+                    </li>
+                    <li>
+                        <div class="card-panel lighten-5 z-depth-1">
+                            <div class="card-content">
+                                <h5 class="title">
+                                   任职要求：
+                                </h5>
+                                {% autoescape off %}
+                                    {{ Job.requirement }}
+                                {% endautoescape %}
+                            </div>
+                        </div>
+
+                    </li>
+                 </ul>
+
+{#            </div>#}
+{#        </div>#}
+    </div>
+        {% include 'public/footer.html' %}
+<script src="/static/job/job_detail.js"></script>
+</html>

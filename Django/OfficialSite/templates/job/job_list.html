@@ -1,0 +1,28 @@
+
+<ul id="tag-list" class="tag-list">
+    {% for job in Jobs %}
+    <li>
+        <div class="card-panel lighten-5 z-depth-1">
+            <div class="card-content">
+                <div class="row">
+                    <div class="col s12 m6 l9">
+                        <a href="{% url 'site_about_job_detail' job.id%}">{{ job.title }}</a><br>
+                        <div class="row">
+                            <div class="col s12 m12 l5">部&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;门: {{ job.department.name }}</div>
+                            <div class="col s12 m6 l3">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;点: {{ job.address.name }}</div>
+                            <div class="col s12 m6 l4">类&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型: {{ job.category.name }}</div>
+                        </div>
+                    </div>
+                    <div class="col s12 m6 l3">
+                        <div class="chip right">
+                            <i class="material-icons close left">av_timer</i>{{ job.created|date:'Y-m-d' }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+
+    {% endfor %}
+
+</ul>

@@ -1,0 +1,38 @@
+/*.card-panel {*/
+    /*padding: 4px 20px;*/
+/*}*/
+/*.card-panel:after {*/
+    /*content: ".";*/
+    /*display: block;*/
+    /*height: 0;*/
+    /*clear: both;*/
+    /*visibility: hidden;*/
+/*}*/
+/*.card-content {*/
+    /*line-height: 37px;*/
+/*}*/
+
+/*.card-content .row {*/
+    /*margin-bottom: 0;*/
+
+/*}*/
+/*.container li.tag-list {*/
+    /*opacity: 0;*/
+/*}*/
+footer.page-footer {
+    margin-top: 0;
+}
+.collapsible-header a {
+    display: block;
+    background-color: #fff;
+    line-height: 1.5rem;
+    padding: 10px 20px;
+    margin: 0;
+    position: relative;
+}
+.collapsible-header a .badge {
+    right: 72px;
+}
+.parallax-container {
+    height: 160px;
+}
